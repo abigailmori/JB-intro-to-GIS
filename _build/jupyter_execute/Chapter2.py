@@ -19,7 +19,7 @@
 # 
 # But for data scientists, I recommend another source: [censusreporter.org](https://censusreporter.org/)
 # 
-# <a href="https://censusreporter.org" target="_blank"><img src="images/cr.png"></a>
+# ![](./images/cr.png)
 
 # ## The libraries
 
@@ -48,7 +48,7 @@ import matplotlib.pyplot as plt
 
 # We make the call to load and read the data that was downloaded from census reporter. Take note at the relative path reference to find the file in your file directory.
 
-# In[ ]:
+# In[2]:
 
 
 # load a data file
@@ -59,35 +59,35 @@ gdf = gpd.read_file('data/acs2019_5yr_B03002_14000US06037534001.geojson')
 # ## Preliminary inspection
 # A quick look at the size of the data.
 
-# In[ ]:
+# In[3]:
 
 
 # get number of rows, columns
 gdf.shape
 
 
-# In[ ]:
+# In[4]:
 
 
 # get first 5 rows
 gdf.head()
 
 
-# In[ ]:
+# In[5]:
 
 
 # get a random row
 gdf.sample()
 
 
-# In[ ]:
+# In[6]:
 
 
 # plot it!
 gdf.plot(figsize=(10,10))
 
 
-# In[ ]:
+# In[7]:
 
 
 # plot a random row
@@ -98,7 +98,7 @@ gdf.sample().plot()
 # 
 # To get the data types, we will use `.info()`. 
 
-# In[ ]:
+# In[8]:
 
 
 # look at columns, null values, and the data types
@@ -112,7 +112,7 @@ gdf.info()
 # 
 # ![fips](images/fips.png)
 
-# In[1]:
+# In[9]:
 
 
 # get first five geoid's
@@ -132,21 +132,21 @@ gdf.geoid.head()
 #     Note that any data downloaded from censusreporter will have a "summary row" for the entire data.
 # </div>
 
-# In[2]:
+# In[10]:
 
 
 # check the data again
 gdf.head()
 
 
-# In[ ]:
+# In[11]:
 
 
 # drop the row with index 0 (i.e. the first row)
 gdf = gdf.drop([0])
 
 
-# In[ ]:
+# In[12]:
 
 
 # check to see if it has been deleted
@@ -170,13 +170,13 @@ gdf.head()
 # - redefine `gdf` with only the columns to keep
 # 
 
-# In[ ]:
+# In[13]:
 
 
 list(gdf) # this is the same as df.columns.to_list()
 
 
-# In[ ]:
+# In[14]:
 
 
 # create a list of columns to keep
@@ -195,14 +195,14 @@ columns_to_keep = ['geoid',
  'geometry']
 
 
-# In[ ]:
+# In[15]:
 
 
 # redefine gdf with only columns to keep
 gdf = gdf[columns_to_keep]
 
 
-# In[ ]:
+# In[16]:
 
 
 # check the slimmed down gdf
@@ -213,7 +213,7 @@ gdf.head()
 # 
 # Let's rename the columns. First, create a list of column names as they are now.
 
-# In[ ]:
+# In[17]:
 
 
 list(gdf) # this is the same as df.columns.to_list()
@@ -221,7 +221,7 @@ list(gdf) # this is the same as df.columns.to_list()
 
 # Then, simply copy and paste the output list above, and define the columns with it. Replace the values with your desired column names
 
-# In[ ]:
+# In[18]:
 
 
 gdf.columns = ['geoid',
@@ -239,7 +239,7 @@ gdf.columns = ['geoid',
  'geometry']
 
 
-# In[ ]:
+# In[19]:
 
 
 # check the renamed columns
@@ -249,7 +249,7 @@ gdf.head()
 # ## Double check your data integrity
 # Does the math add up? Let's check. The `Total` should equal the rest of the columns.
 
-# In[ ]:
+# In[20]:
 
 
 # get a random record
@@ -263,7 +263,7 @@ random_tract
 # 
 # While there are various methods to get cell values in python, the iloc command allows you to get to a cell based on the position of the record row and the column name.
 
-# In[ ]:
+# In[21]:
 
 
 # example usage of iloc to get the total population of our random record
@@ -271,21 +271,21 @@ random_tract
 random_tract.iloc[0]['Total']
 
 
-# In[ ]:
+# In[22]:
 
 
 # print this out in plain english
 print('Total population: ' + str(random_tract.iloc[0]['Total']))
 
 
-# In[ ]:
+# In[23]:
 
 
 # non hispanic plus hispanic should equal to the total
 print('Non Hispanic + Hispanic: ' + str(random_tract.iloc[0]['Non Hispanic'] + random_tract.iloc[0]['Hispanic']))
 
 
-# In[ ]:
+# In[24]:
 
 
 # hispanic plus all the non hispanice categories
@@ -301,28 +301,28 @@ print(random_tract.iloc[0]['Non Hispanic White'] +
 
 # ## Simple stats and plots
 
-# In[ ]:
+# In[25]:
 
 
 # access a single column like df['col_name']
 gdf['Total'].head()
 
 
-# In[ ]:
+# In[26]:
 
 
 # What is the mean?
 gdf['Total'].mean()
 
 
-# In[ ]:
+# In[27]:
 
 
 # What is the median?
 gdf['Total'].median()
 
 
-# In[ ]:
+# In[28]:
 
 
 # get some stats
@@ -333,14 +333,14 @@ gdf['Total'].describe()
 # 
 # - https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html
 
-# In[ ]:
+# In[29]:
 
 
 # plot it as a historgram with 50 bins
 gdf['Total'].plot.hist()
 
 
-# In[ ]:
+# In[30]:
 
 
 # make it bigger, increase the number of bins, and give it a title
@@ -364,27 +364,27 @@ gdf['Total'].plot.hist(figsize=(12,5),
 # 
 # - [pandas sort_values](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html)
 
-# In[ ]:
+# In[31]:
 
 
 gdf_sorted = gdf.sort_values(by='Total',ascending = False)
 
 
-# In[ ]:
+# In[32]:
 
 
 # display the data, but just a few columns to keep it clean
 gdf_sorted[['geoid','Total']].head(10)
 
 
-# In[ ]:
+# In[33]:
 
 
 # plot the top 10 most populated tracts
 gdf_sorted.head(10).plot(figsize=(10,10))
 
 
-# In[ ]:
+# In[34]:
 
 
 # Make it 100 and prettier
@@ -407,7 +407,7 @@ gdf_sorted.head(1000).plot(figsize=(10,10),
 # ## Filtering and subsetting data
 # Sorting is one method, but the process of discovery compels us to interrogate the data in different ways. One method of doing so is to query, or filter the data to see specific views of the data based on a question you may have. For example, what are the census tract that have no people in them? Or, Which census tracts are more than 75% black?
 
-# In[ ]:
+# In[35]:
 
 
 # subset the data so that we can see the data per row... 
@@ -417,21 +417,21 @@ gdf[gdf['Total']==0]
 
 # Note that unless you specify the resulting output as a new variable, the results are only temporary (in memory). If you want to use the results for subsequent analysis, you need to create a new variable.
 
-# In[ ]:
+# In[36]:
 
 
 # create a new variable for census tracts with zero pop
 gdf_no_pop = gdf[gdf['Total']==0]
 
 
-# In[ ]:
+# In[37]:
 
 
 # how many records?
 print('There are ' + str(len(gdf_no_pop)) + ' census tracts with no people in them')
 
 
-# In[ ]:
+# In[38]:
 
 
 # display it
@@ -444,14 +444,14 @@ gdf_no_pop[['geoid','Total']]
 
 # To avoid these types of misrepresentations, we can normalize the data, and provide it as a percent of total.
 
-# In[ ]:
+# In[39]:
 
 
 # output columns
 list(gdf)
 
 
-# In[ ]:
+# In[40]:
 
 
 # create a new column, and populate it with normalized data to get the percent of total value
@@ -466,7 +466,7 @@ gdf['Percent Non Hispanic Some other race'] = gdf['Non Hispanic Some other race'
 gdf['Percent Non Hispanic Two or more races'] = gdf['Non Hispanic Two or more races']/gdf['Total']*100
 
 
-# In[ ]:
+# In[41]:
 
 
 # check your work

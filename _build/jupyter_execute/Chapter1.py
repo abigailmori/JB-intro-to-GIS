@@ -21,8 +21,8 @@
 # would be an example of a Geographic Information System.
 # 
 # In short:
-# 
 # ![](./images/image1.png)
+# 
 
 # ## Data Types
 # ----------
@@ -126,7 +126,7 @@
 
 # The following election result map shows the number of people from each state that voted for either Biden or Trump in the 2020 general election.
 # 
-# <img src="images/image2021_1.png" width=800>
+# ![](./images/image2021_1.png)
 # 
 # Source: [New York Times,
 # 2020](https://www.nytimes.com/interactive/2020/11/03/us/elections/results-president.html)
@@ -155,7 +155,7 @@
 # break it down into counties to see how the summing of the data changed
 # spatial relationships.
 # 
-# <img src="images/image2021_2.png" width=800>
+# ![](./images/image2021_2.png)
 # 
 # 
 # Source: [USA Today,
@@ -163,7 +163,7 @@
 
 # How does this map compare to the previous map?
 # 
-# <img src="images/image2021_1.png" width=800>
+# ![](./images/image2021_1.png)
 # 
 # For one thing, you can see that a state like Nevada is not completely blue and has quite a bit of Republican voters. When a whole state is considered “democrat” or blue, such types of simplifications can only occur when data from the counties is summarized upwards to the state level.
 
