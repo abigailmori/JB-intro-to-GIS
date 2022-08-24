@@ -11,3 +11,4 @@ In this hands on workshop, you will be provided with a Jupyter Notebook workspac
 
 ## Non-UCLA participants
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/yohman/workshop-census/HEAD)
+# JB-intro-to-GIS
